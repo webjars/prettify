@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>prettify</artifactId>
-    <version>1-Jun-2011-SNAPSHOT</version>
+    <version>1-Jun-2011</version>
     <name>google-code-prettify</name>
     <description>WebJar for google-code-prettify</description>
     <url>http://webjars.org</url>
@@ -36,7 +36,7 @@
         <url>http://github.com/webjars/prettify</url>
         <connection>scm:git:https://github.com/webjars/prettify.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/prettify.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>prettify-1-Jun-2011</tag>
     </scm>
     
     <properties>
@@ -78,8 +78,8 @@
                             <target>
                                 <echo message="bunzip archive" />
 	                        <exec executable="tar" dir="${project.build.directory}">
-                                    <arg value="-jxvf"/>
-                                    <arg value="${project.build.directory}/${project.artifactId}.tar.bz2"/>
+                                    <arg value="-jxvf" />
+                                    <arg value="${project.build.directory}/${project.artifactId}.tar.bz2" />
                                 </exec>
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
