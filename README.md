@@ -1,5 +1,5 @@
-WebJar for [Library]
+WebJar for google-code-prettify
 
 More info: http://webjars.org
 
-Upstream: [Library URL]
+Upstream: https://code.google.com/p/google-code-prettify/

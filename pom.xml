@@ -10,47 +10,39 @@
     
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
-    <artifactId>WEBJAR_ID</artifactId>
-    <version>UPSTREAM_VERSION-SNAPSHOT</version>
-    <name>WEBJAR_NAME</name>
-    <description>WebJar for WEBJAR_NAME</description>
+    <artifactId>prettify</artifactId>
+    <version>1-Jun-2011-SNAPSHOT</version>
+    <name>google-code-prettify</name>
+    <description>WebJar for google-code-prettify</description>
     <url>http://webjars.org</url>
 
     <developers>
         <developer>
-            <id>YOUR_ID</id>
-            <name>YOUR_NAME</name>
-            <email>YOUR_EMAIL</email>
+            <id>jamesward</id>
+            <name>James Ward</name>
+            <email>james@jamesward.com</email>
         </developer>
     </developers>
 
     <licenses>
         <license>
-            <name>UPSTREAM_LICENSE_NAME</name>
-            <url>UPSTREAM_LICENSE_VERSION</url>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <scm>
-        <url>http://github.com/webjars/WEBJAR_ID</url>
-        <connection>scm:git:https://github.com/webjars/WEBJAR_ID.git</connection>
-        <developerConnection>scm:git:https://github.com/webjars/WEBJAR_ID.git</developerConnection>
+        <url>http://github.com/webjars/prettify</url>
+        <connection>scm:git:https://github.com/webjars/prettify.git</connection>
+        <developerConnection>scm:git:https://github.com/webjars/prettify.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
     
-    <dependencies>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>ANOTHER_WEBJAR_ID</artifactId>
-            <version>ANOTHER_WEBJAR_VERSION</version>
-        </dependency>
-    </dependencies>
-    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>UPSTREAM_VERSION</upstream.version>
-        <upstream.url>UPSTREAM_URL</upstream.url>
+        <upstream.version>1-Jun-2011</upstream.version>
+        <upstream.url>https://google-code-prettify.googlecode.com/files</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
     </properties>
 
@@ -68,8 +60,8 @@
                         </goals>
                         <configuration>
                             <url>${upstream.url}</url>
-                            <fromFile>SOME_FILE-${upstream.version}.zip</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
+                            <fromFile>prettify-small-${upstream.version}.tar.bz2</fromFile>
+                            <toFile>${project.build.directory}/${project.artifactId}.tar.bz2</toFile>
                         </configuration>
                     </execution>
                 </executions>
@@ -84,11 +76,14 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                                <echo message="bunzip archive" />
+	                        <exec executable="tar" dir="${project.build.directory}">
+                                    <arg value="-jxvf"/>
+                                    <arg value="${project.build.directory}/${project.artifactId}.tar.bz2"/>
+                                </exec>
                                 <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/SOME_SUBDIR-${upstream.version}" />
+                                    <fileset dir="${project.build.directory}/google-code-prettify" />
                                 </move>
                             </target>
                         </configuration>
