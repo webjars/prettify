@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>prettify</artifactId>
-    <version>4-Mar-2013-SNAPSHOT</version>
+    <version>4-Mar-2013</version>
     <name>google-code-prettify</name>
     <description>WebJar for google-code-prettify</description>
     <url>http://webjars.org</url>
@@ -36,7 +36,7 @@
         <url>http://github.com/webjars/prettify</url>
         <connection>scm:git:https://github.com/webjars/prettify.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/prettify.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>prettify-4-Mar-2013</tag>
     </scm>
     
     <properties>
